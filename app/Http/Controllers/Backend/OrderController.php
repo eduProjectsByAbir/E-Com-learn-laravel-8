@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderItem;
+use App\Models\Product;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
@@ -64,6 +65,21 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
 
         if($request->status == "confirmed"){
+            if($order->confirmed_date == null){
+                $OrderItem = OrderItem::where('order_id', $order->id)->get();
+                foreach($OrderItem as $item){
+                    $product = Product::findOrFail($item->product_id);
+                    if($product->qty !== 0){
+                        $qty = $product->qty-$item->qty;
+                        $product->qty = $qty;
+                        $product->save();
+                    } else {
+                        flashWarning('Product Limit Over!');
+                        return back();
+                    }
+                }
+            }
+
             $order->status = "confirmed";
             $order->confirmed_date = Carbon::now()->format('d F Y');
             flashSuccess("Order Confirmed!");
