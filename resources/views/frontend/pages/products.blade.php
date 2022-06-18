@@ -25,7 +25,7 @@ All Products
                 <div class="sidebar-module-container">
                     <div class="sidebar-filter">
                         <!-- ============================================== SIDEBAR CATEGORY ============================================== -->
-                        <div class="sidebar-widget wow fadeInUp">
+                        {{-- <div class="sidebar-widget wow fadeInUp">
                             <h3 class="section-title">shop by</h3>
                             <div class="widget-header">
                                 <h4 class="widget-title">Category</h4>
@@ -150,12 +150,12 @@ All Products
                                 <!-- /.accordion -->
                             </div>
                             <!-- /.sidebar-widget-body -->
-                        </div>
+                        </div> --}}
                         <!-- /.sidebar-widget -->
                         <!-- ============================================== SIDEBAR CATEGORY : END ============================================== -->
 
                         <!-- ============================================== PRICE SILDER============================================== -->
-                        <div class="sidebar-widget wow fadeInUp">
+                        {{-- <div class="sidebar-widget wow fadeInUp">
                             <div class="widget-header">
                                 <h4 class="widget-title">Price Slider</h4>
                             </div>
@@ -171,7 +171,7 @@ All Products
                                 <a href="#" class="lnk btn btn-primary">Show Now</a>
                             </div>
                             <!-- /.sidebar-widget-body -->
-                        </div>
+                        </div> --}}
                         <!-- /.sidebar-widget -->
                         <!-- ============================================== PRICE SILDER : END ============================================== -->
                         <!-- ============================================== Brands ============================================== -->
@@ -210,7 +210,7 @@ All Products
                         <!-- /.sidebar-widget -->
                         <!-- ============================================== COLOR: END ============================================== -->
                         <!-- ============================================== COMPARE============================================== -->
-                        <div class="sidebar-widget wow fadeInUp outer-top-vs">
+                        {{-- <div class="sidebar-widget wow fadeInUp outer-top-vs">
                             <h3 class="section-title">Compare products</h3>
                             <div class="sidebar-widget-body">
                                 <div class="compare-report">
@@ -219,14 +219,14 @@ All Products
                                 <!-- /.compare-report -->
                             </div>
                             <!-- /.sidebar-widget-body -->
-                        </div>
+                        </div> --}}
                         <!-- /.sidebar-widget -->
                         <!-- ============================================== COMPARE: END ============================================== -->
                         <!-- ============================================== PRODUCT TAGS ============================================== -->
                         <x-frontend.sidebar.tags :tags=$tags />
                         <!-- /.sidebar-widget -->
                         <!----------- Testimonials------------->
-                        <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
+                        {{-- <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
                             <div id="advertisement" class="advertisement">
                                 <div class="item">
                                     <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image">
@@ -259,11 +259,11 @@ All Products
 
                             </div>
                             <!-- /.owl-carousel -->
-                        </div>
+                        </div> --}}
 
                         <!-- ============================================== Testimonials: END ============================================== -->
 
-                        <div class="home-banner"> <img src="assets/images/banners/LHS-banner.jpg" alt="Image"> </div>
+                        {{-- <div class="home-banner"> <img src="assets/images/banners/LHS-banner.jpg" alt="Image"> </div> --}}
                     </div>
                     <!-- /.sidebar-filter -->
                 </div>
@@ -304,7 +304,7 @@ All Products
             </div>
             <!-- /.col -->
             <div class="col col-sm-12 col-md-6">
-                <div class="col col-sm-3 col-md-6 no-padding">
+                {{-- <div class="col col-sm-3 col-md-6 no-padding">
                     <div class="lbl-cnt"> <span class="lbl">Sort by</span>
                         <div class="fld inline">
                             <div class="dropdown dropdown-small dropdown-med dropdown-white inline">
@@ -346,7 +346,7 @@ All Products
                         <!-- /.fld -->
                     </div>
                     <!-- /.lbl-cnt -->
-                </div>
+                </div> --}}
                 <!-- /.col -->
             </div>
             <!-- /.col -->
@@ -391,7 +391,7 @@ All Products
                                         <h3 class="name"><a
                                                 href="{{ route('showProduct', $product->slug) }}">{{ $product->name }}</a>
                                         </h3>
-                                        <div class="rating rateit-small"></div>
+                                        {{-- <div class="rating rateit-small"></div> --}}
                                         <div class="description"></div>
                                         <div class="product-price"> <span class="price">
                                                 ${{ $product->discount_price !== null ? ($product->price - $product->discount_price) : $product->price  ?? $product->price }}
@@ -416,9 +416,9 @@ All Products
                                                 </li>
                                                 <li class="lnk wishlist" data-val="{{ $product->id }}"> <a class="add-to-cart" onclick="event.preventDefault()" href=""
                                                         title="Wishlist"> <i class="icon fa fa-heart"></i> </a> </li>
-                                                <li class="lnk"> <a class="add-to-cart" href=""
+                                                {{-- <li class="lnk"> <a class="add-to-cart" href=""
                                                         title="Compare"> <i class="fa fa-signal"></i> </a>
-                                                </li>
+                                                </li> --}}
                                             </ul>
                                         </div>
                                         <!-- /.action -->
@@ -462,7 +462,7 @@ All Products
                                             <h3 class="name"><a
                                                     href="{{ route('showProduct', $product->slug) }}">{{ $product->name }}</a>
                                             </h3>
-                                            <div class="rating rateit-small"></div>
+                                            {{-- <div class="rating rateit-small"></div> --}}
                                             <div class="product-price"> <span class="price">
                                                     ${{ $product->discount_price !== null ? ($product->price - $product->discount_price) : $product->price  ?? $product->price }}
                                                 </span>
@@ -480,14 +480,15 @@ All Products
                                                                 title="Add Cart" data-toggle="modal"
                                                                 data-target="#addToCart" id="{{ $product->id }}" onclick="productView({{ $product->id }})"> <i
                                                                     class="fa fa-shopping-cart"></i> </button>
-                                                            <button class="btn btn-primary cart-btn" type="button">Add
+                                                            <button class="btn btn-primary cart-btn" type="button" title="Add Cart" data-toggle="modal"
+                                                            data-target="#addToCart" id="{{ $product->id }}" onclick="productView({{ $product->id }})">Add
                                                                 to cart</button>
                                                         </li>
                                                         <li class="lnk wishlist" data-val="{{ $product->id }}"> <a class="add-to-cart"
                                                             onclick="event.preventDefault()" href="" title="Wishlist"> <i
                                                                     class="icon fa fa-heart"></i> </a> </li>
-                                                        <li class="lnk"> <a class="add-to-cart" href=""
-                                                                title="Compare"> <i class="fa fa-signal"></i> </a> </li>
+                                                        {{-- <li class="lnk"> <a class="add-to-cart" href=""
+                                                                title="Compare"> <i class="fa fa-signal"></i> </a> </li> --}}
                                                     </ul>
                                                 </div>
                                                 <!-- /.action -->

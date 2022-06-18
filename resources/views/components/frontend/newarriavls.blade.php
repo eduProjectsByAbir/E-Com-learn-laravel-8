@@ -58,9 +58,9 @@
                                         href="{{ route('showProduct', $product->slug)  }}" title="Wishlist"> <i
                                             class="icon fa fa-heart"></i>
                                     </a> </li>
-                                <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
+                                {{-- <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
                                         href="{{ route('showProduct', $product->slug)  }}" title="Compare"> <i class="fa fa-signal"
-                                            aria-hidden="true"></i> </a> </li>
+                                            aria-hidden="true"></i> </a> </li> --}}
                             </ul>
                         </div>
                         <!-- /.action -->

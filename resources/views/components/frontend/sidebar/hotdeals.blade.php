@@ -57,7 +57,8 @@
                             <button class="btn btn-primary icon" type="button" title="Add Cart"
                             data-toggle="modal" data-target="#addToCart" id="{{ $hotproduct->id }}" onclick="productView({{ $hotproduct->id }})"> <i
                                 class="fa fa-shopping-cart"></i> </button>
-                            <button class="btn btn-primary cart-btn" type="button">Add to
+                            <button class="btn btn-primary cart-btn" type="button" title="Add Cart"
+                            data-toggle="modal" data-target="#addToCart" id="{{ $hotproduct->id }}" onclick="productView({{ $hotproduct->id }})">Add to
                                 cart</button>
                         </div>
                     </div>

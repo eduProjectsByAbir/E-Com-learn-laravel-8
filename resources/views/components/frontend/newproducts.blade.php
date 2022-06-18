@@ -85,9 +85,9 @@
                                                     href="{{ route('showProduct', $product->slug)  }}" title="Wishlist">
                                                     <i class="icon fa fa-heart"></i>
                                                 </a> </li>
-                                            <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
+                                            {{-- <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
                                                     href="{{ route('showProduct', $product->slug)  }}" title="Compare">
-                                                    <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+                                                    <i class="fa fa-signal" aria-hidden="true"></i> </a> </li> --}}
                                         </ul>
                                     </div>
                                     <!-- /.action -->
@@ -174,9 +174,9 @@
                                                     title="Wishlist" onclick="addToWishList({{ $product->id }})">
                                             <i class="icon fa fa-heart"></i>
                                             </button> --}}
-                                            <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
+                                            {{-- <li class="lnk"> <a data-toggle="tooltip" class="add-to-cart"
                                                     href="{{ route('showProduct', $product->slug)  }}" title="Compare">
-                                                    <i class="fa fa-signal" aria-hidden="true"></i> </a> </li>
+                                                    <i class="fa fa-signal" aria-hidden="true"></i> </a> </li> --}}
                                         </ul>
                                     </div>
                                     <!-- /.action -->

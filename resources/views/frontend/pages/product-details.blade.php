@@ -9,9 +9,9 @@
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <li><a
-                        href="{{ route('showProducts', 'category='.$productDetails->category_id) }}">{{ $productDetails->category->name }}</a>
-                </li>
+                <a
+                        href="{{ route('showProducts', 'category='.$productDetails->category_id) }}"><li>{{ $productDetails->category->name }}
+                </li></a>
                 <li class='active'>{{ $productDetails->name }}</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -29,7 +29,7 @@
                     <x-frontend.sidebar.newsletter />
                     <!-- ==================================== NEWSLETTER: END =============================== -->
                     <!-- ===================================== Testimonials=============================== -->
-                    <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
+                    {{-- <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
                         <div id="advertisement" class="advertisement">
                             <div class="item">
                                 <div class="avatar"><img src="assets/images/testimonials/member1.png" alt="Image">
@@ -55,7 +55,7 @@
                                 <!-- /.container-fluid -->
                             </div><!-- /.item -->
                         </div><!-- /.owl-carousel -->
-                    </div>
+                    </div> --}}
                     <!-- ============================================== Testimonials: END ============================================== -->
                 </div>
             </div><!-- /.sidebar -->
@@ -114,7 +114,7 @@
                                 <div class="product-info">
                                     <h1 class="name">{{ $productDetails->name }}</h1>
                                     <input type="hidden" name="name" value="{{ $productDetails->name }}">
-                                    <div class="rating-reviews m-t-20">
+                                    {{-- <div class="rating-reviews m-t-20">
                                         <div class="row">
                                             <div class="col-sm-3">
                                                 <div class="rating rateit-small"></div>
@@ -125,7 +125,7 @@
                                                 </div>
                                             </div>
                                         </div><!-- /.row -->
-                                    </div><!-- /.rating-reviews -->
+                                    </div><!-- /.rating-reviews --> --}}
                                     <div class="stock-container info-container m-t-10">
                                         <div class="row">
                                             <div class="col-sm-2">
@@ -163,14 +163,14 @@
                                                         data-placement="right" title="Wishlist" href="#">
                                                         <i class="fa fa-heart"></i>
                                                     </a>
-                                                    <a class="btn btn-primary" data-toggle="tooltip"
+                                                    {{-- <a class="btn btn-primary" data-toggle="tooltip"
                                                         data-placement="right" title="Add to Compare" href="#">
                                                         <i class="fa fa-signal"></i>
                                                     </a>
                                                     <a class="btn btn-primary" data-toggle="tooltip"
                                                         data-placement="right" title="E-mail" href="#">
                                                         <i class="fa fa-envelope"></i>
-                                                    </a>
+                                                    </a> --}}
                                                 </div>
                                             </div>
                                         </div><!-- /.row -->
@@ -248,8 +248,8 @@
                         <div class="col-sm-3">
                             <ul id="product-tabs" class="nav nav-tabs nav-tab-cell">
                                 <li class="active"><a data-toggle="tab" href="#description">DESCRIPTION</a></li>
-                                <li><a data-toggle="tab" href="#review">REVIEW</a></li>
-                                <li><a data-toggle="tab" href="#tags">TAGS</a></li>
+                                {{-- <li><a data-toggle="tab" href="#review">REVIEW</a></li>
+                                <li><a data-toggle="tab" href="#tags">TAGS</a></li> --}}
                             </ul><!-- /.nav-tabs #product-tabs -->
                         </div>
                         <div class="col-sm-9">
@@ -262,7 +262,7 @@
                                             $productDetails->short_description !!}</p>
                                     </div>
                                 </div><!-- /.tab-pane -->
-
+{{-- 
                                 <div id="review" class="tab-pane">
                                     <div class="product-tab">
 
@@ -417,7 +417,7 @@
                                         </form><!-- /.form-cnt -->
 
                                     </div><!-- /.product-tab -->
-                                </div><!-- /.tab-pane -->
+                                </div><!-- /.tab-pane --> --}}
 
                             </div><!-- /.tab-content -->
                         </div><!-- /.col -->
