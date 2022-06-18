@@ -53,7 +53,7 @@
                             @break;
                             @endif
                             @endforeach
-                            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
+                            {{-- <li class="dropdown"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
                                     data-toggle="dropdown">Pages</a>
                                 <ul class="dropdown-menu pages">
                                     <li>
@@ -85,8 +85,8 @@
                                         </div>
                                     </li>
                                 </ul>
-                            </li>
-                            <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li>
+                            </li> --}}
+                            {{-- <li class="dropdown  navbar-right special-menu"> <a href="#">Todays offer</a> </li> --}}
                         </ul>
                         <!-- /.navbar-nav -->
                         <div class="clearfix"></div>

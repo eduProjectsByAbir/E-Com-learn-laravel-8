@@ -69,7 +69,7 @@
                 <!-- /.scroll-tabs -->
                 <!-- ============================================== SCROLL TABS : END ============================================== -->
                 <!-- ============================================== WIDE PRODUCTS ============================================== -->
-                <div class="wide-banners wow fadeInUp outer-bottom-xs">
+                {{-- <div class="wide-banners wow fadeInUp outer-bottom-xs">
                     <div class="row">
                         <div class="col-md-7 col-sm-7">
                             <div class="wide-banner cnt-strip">
@@ -89,7 +89,7 @@
                         <!-- /.col -->
                     </div>
                     <!-- /.row -->
-                </div>
+                </div> --}}
                 <!-- /.wide-banners -->
 
                 <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
@@ -98,7 +98,7 @@
                 <!-- /.section -->
                 <!-- ============================================== FEATURED PRODUCTS : END ============================================== -->
                 <!-- ============================================== WIDE PRODUCTS ============================================== -->
-                <div class="wide-banners wow fadeInUp outer-bottom-xs">
+                {{-- <div class="wide-banners wow fadeInUp outer-bottom-xs">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="wide-banner cnt-strip">
@@ -121,7 +121,7 @@
 
                     </div>
                     <!-- /.row -->
-                </div>
+                </div> --}}
                 <!-- /.wide-banners -->
                 <!-- ============================================== WIDE PRODUCTS : END ============================================== -->
                 <!-- ============================================== BEST SELLER ============================================== -->
@@ -130,7 +130,7 @@
                 <!-- ============================================== BEST SELLER : END ============================================== -->
 
                 <!-- ============================================== BLOG SLIDER ============================================== -->
-                <section class="section latest-blog outer-bottom-vs wow fadeInUp">
+                {{-- <section class="section latest-blog outer-bottom-vs wow fadeInUp">
                     <h3 class="section-title">latest form blog</h3>
                     <div class="blog-slider-container outer-top-xs">
                         <div class="owl-carousel blog-slider custom-carousel">
@@ -260,7 +260,7 @@
                         <!-- /.owl-carousel -->
                     </div>
                     <!-- /.blog-slider-container -->
-                </section>
+                </section> --}}
                 <!-- /.section -->
                 <!-- ============================================== BLOG SLIDER : END ============================================== -->
 

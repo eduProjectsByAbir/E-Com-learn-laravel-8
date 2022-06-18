@@ -66,6 +66,11 @@ class WebsiteController extends Controller
             $query->where('tags', 'LIKE', "%$request->tags%");
         }
 
+        // keyword search
+        if ($request->has('keyword') && $request->keyword != null) {
+            $query->where('name', 'LIKE', "%$request->keyword%");
+        }
+
         // color search
         if ($request->has('color') && $request->color != null) {
             $query->where('color', 'LIKE', "%$request->color%");

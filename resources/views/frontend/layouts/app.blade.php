@@ -84,7 +84,8 @@
                                 <input type="number" class="form-control" id="m_qty" value="1" min="1">
                             </div> <!-- // end form group -->
                             <input type="hidden" id="m_product_id">
-                            <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">Add to Cart</button>
+                            <button type="submit" class="btn btn-primary mb-2" onclick="addToCart()">Add to
+                                Cart</button>
                         </div><!-- // end col md -->
                     </div> <!-- // end row -->
                 </div> <!-- // end modal Body -->
@@ -110,9 +111,9 @@
                 success: function (data) {
                     $('#m_image').attr('src', data.product_thumbnail_url).attr('width', '150px');
                     $('#m_name').text(data.name);
-                    if(data.discount_price){
-                        var price = data.price-data.discount_price;
-                        $('#m_price').text('$ ' +price);
+                    if (data.discount_price) {
+                        var price = data.price - data.discount_price;
+                        $('#m_price').text('$ ' + price);
                     } else {
                         $('#m_price').text('$ ' + data.price);
                     }
@@ -132,7 +133,8 @@
                     } else {
                         $('#m_size_form').show();
                         $.each(data.all_sizes, function (key, value) {
-                            $('#m_size').append("<option value='" + value + "'>" + value.toUpperCase() +
+                            $('#m_size').append("<option value='" + value + "'>" + value
+                                .toUpperCase() +
                                 "</option>");
                         });
                     }
@@ -142,7 +144,8 @@
                     } else {
                         $('#m_color_form').show();
                         $.each(data.all_colors, function (key, value) {
-                            $('#m_color').append("<option value='" + value + "'>" + capitalizeFirstLetter(value) +
+                            $('#m_color').append("<option value='" + value + "'>" +
+                                capitalizeFirstLetter(value) +
                                 "</option>");
                         });
                     }
@@ -151,7 +154,7 @@
         }
 
         // cart add
-        function addToCart(){
+        function addToCart() {
             var id = $('#m_product_id').val();
             var name = $('#m_name').text();
             var color = $('#m_color option:selected').val();
@@ -163,16 +166,16 @@
                 dataType: 'json',
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    id:id,
-                    name:name,
-                    color:color,
-                    size:size,
-                    qty:qty,
+                    id: id,
+                    name: name,
+                    color: color,
+                    size: size,
+                    qty: qty,
                 },
                 url: '{{ route('addToCart') }}',
-                success: function (data){
+                success: function (data) {
                     $('#closeModal').click();
-                    if(data.success){
+                    if (data.success) {
                         navCartShow();
                         // $('#headerCartCount').empty().text(data.cartCount);
                         toastr.success(data.success, 'Success!');
@@ -182,10 +185,11 @@
                 }
             })
         }
+
     </script>
     <script type="text/javascript">
-    function navCartShow(){
-        $.ajax({
+        function navCartShow() {
+            $.ajax({
                 type: 'GET',
                 url: '{{ route('navCart') }}',
                 dataType: 'json',
@@ -194,7 +198,7 @@
                 },
                 success: function (data) {
                     var product = "";
-                    $.each(data.carts, function(key, value){
+                    $.each(data.carts, function (key, value) {
                         product += `
                         <div class="cart-item product-summary">
                             <div class="row">
@@ -219,55 +223,58 @@
                     $('#headerCartTotalShow').empty().text(data.cartsTotal);
                     $('#headerCartCount').empty().text(data.cartQty);
                     $('#headerCartTotalTax').empty().text(data.cartsTax);
-                    if(data.cartQty == 0){
+                    if (data.cartQty == 0) {
                         $('#headerCartList').empty().text('No Product in cart!');
                         $('#navCheckoutButton').attr('disabled', true);
                     }
                 }
             });
-    }
+        }
+
     </script>
     <script type="text/javascript">
-    function cartRemoveProduct(id){
-        $.ajax({
+        function cartRemoveProduct(id) {
+            $.ajax({
                 type: 'GET',
                 url: '{{ route('cartRemoveProduct') }}',
                 dataType: 'json',
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    "id":id
+                    "id": id
                 },
                 success: function (data) {
-                    if(data.success){
+                    if (data.success) {
                         navCartShow();
                         toastr.success(data.success, 'Success!');
                     } else {
                         toastr.error(data.error, 'Error!');
                     }
-                    if(data.cartCount == 0){
+                    if (data.cartCount == 0) {
                         $('#headerCartList').empty().text('No Product in cart!');
                     }
                 }
             });
-    }
+        }
+
     </script>
     <script>
-        $('.wishlist').click(function(e){
+        $('.wishlist').click(function (e) {
             e.preventDefault();
             var id = $(this).data('val');
             addToWishList(id);
         });
-        function addToWishList(id){
+
+        function addToWishList(id) {
             $.ajax({
                 type: "POST",
                 dataType: 'json',
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    id:id,
+                    id: id,
                 },
                 url: '{{ route('addToWishlist') }}',
-                success: function (data){
-                    if(data.success){
+                success: function (data) {
+                    if (data.success) {
                         toastr.success(data.success, 'Success!');
                     } else {
                         toastr.error(data.error, 'Error!');
@@ -275,9 +282,16 @@
                 }
             })
         }
+
+    </script>
+    <script>
+        $('#searchButton').click(function (e) {
+            e.preventDefault();
+            $('#searchForm').submit();
+        });
     </script>
 
-@yield('jsscript')
+    @yield('jsscript')
 </body>
 
 </html>

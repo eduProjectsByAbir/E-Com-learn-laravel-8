@@ -1,4 +1,4 @@
-<div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
+{{-- <div class="sidebar-widget newsletter wow fadeInUp outer-bottom-small outer-top-vs">
     <h3 class="section-title">Newsletters</h3>
     <div class="sidebar-widget-body outer-top-xs">
         <p>Sign Up for Our Newsletter!</p>
@@ -11,4 +11,4 @@
             <button class="btn btn-primary">Subscribe</button>
         </form>
     </div><!-- /.sidebar-widget-body -->
-</div><!-- /.sidebar-widget -->
+</div><!-- /.sidebar-widget --> --}}

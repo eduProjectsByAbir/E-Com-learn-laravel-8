@@ -25,7 +25,7 @@
                 </div>
                 <!-- /.cnt-account -->
 
-                <div class="cnt-block">
+                {{-- <div class="cnt-block">
                     <ul class="list-unstyled list-inline">
                         <li class="dropdown dropdown-small"> <a href="#" class="dropdown-toggle" data-hover="dropdown"
                                 data-toggle="dropdown"><span class="value">USD </span><b class="caret"></b></a>
@@ -37,7 +37,7 @@
                         </li>
                     </ul>
                     <!-- /.list-unstyled -->
-                </div>
+                </div> --}}
                 <!-- /.cnt-cart -->
                 <div class="clearfix"></div>
             </div>
@@ -66,21 +66,21 @@
                     <!-- /.contact-row -->
                     <!-- ============================================================= SEARCH AREA ============================================================= -->
                     <div class="search-area">
-                        <form>
+                        <form action="{{ route('showProducts') }}" method="get" id="searchForm">
                             <div class="control-group">
                                 <ul class="categories-filter animate-dropdown">
                                     <li class="dropdown"> <a class="dropdown-toggle" data-toggle="dropdown"
-                                            href="category.html">Categories <b class="caret"></b></a>
+                                            href="{{ route('showProducts') }}">Categories <b class="caret"></b></a>
                                         <ul class="dropdown-menu" role="menu">
                                             @foreach ($categories as $category)
-                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="">-
+                                            <li role="presentation"><a role="menuitem" tabindex="-1" href="{{ route('showProducts', 'category='.$category->id) }}">-
                                                     {{ $category->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
                                 </ul>
-                                <input class="search-field" placeholder="Search here..." />
-                                <a class="search-button" href="#"></a>
+                                <input class="search-field" name="keyword" placeholder="Search here..."/>
+                                <a class="search-button" href="#" onclick="form.submit();" id="searchButton"></a>
                             </div>
                         </form>
                     </div>
