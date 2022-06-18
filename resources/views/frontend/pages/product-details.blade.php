@@ -9,9 +9,8 @@
         <div class="breadcrumb-inner">
             <ul class="list-inline list-unstyled">
                 <li><a href="{{ route('home') }}">Home</a></li>
-                <a
-                        href="{{ route('showProducts', 'category='.$productDetails->category_id) }}"><li>{{ $productDetails->category->name }}
-                </li></a>
+                <li><a href="{{ route('showProducts', 'category='.$productDetails->category_id) }}">{{ $productDetails->category->name }}</a>
+                </li>
                 <li class='active'>{{ $productDetails->name }}</li>
             </ul>
         </div><!-- /.breadcrumb-inner -->
@@ -181,8 +180,7 @@
                                                     <label for="info-title control-label">Choose Color</label><br>
                                                     <select name="color" id="color"
                                                         class="from-control unicase-form-control selectpicker">
-                                                        <option value="" disabled>Select Color
-                                                            {{ count($productDetails->all_colors) }}</option>
+                                                        <option value="" disabled>Select Color</option>
                                                         @foreach ($productDetails->all_colors as $color)
                                                         <option value="{{ $color }}">{{ ucfirst($color) }}</option>
                                                         @endforeach

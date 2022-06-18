@@ -122,12 +122,13 @@
                     $('#m_brand').text(data.brand.name);
                     $('#m_stock').text(data.qty);
                     $('#m_product_id').val(data.id);
+                    $('#m_qty').val(1);
+                    $('#m_qty').attr('max', data.qty);
                     $('#m_stock').attr('max', data.qty);
                     $('#m_size').empty();
                     $('#m_size').append("<option value='' disabled>Select Size</option>");
                     $('#m_color').empty();
                     $('#m_color').append("<option value='' disabled>Select Color</option>");
-
                     if (data.all_sizes == "") {
                         $('#m_size_form').hide();
                     } else {
@@ -138,7 +139,6 @@
                                 "</option>");
                         });
                     }
-
                     if (data.all_colors == "") {
                         $('#m_color_form').hide();
                     } else {
@@ -152,7 +152,6 @@
                 }
             });
         }
-
         // cart add
         function addToCart() {
             var id = $('#m_product_id').val();
@@ -160,7 +159,6 @@
             var color = $('#m_color option:selected').val();
             var size = $('#m_size option:selected').val();
             var qty = $('#m_qty').val();
-
             $.ajax({
                 type: "POST",
                 dataType: 'json',
@@ -185,7 +183,6 @@
                 }
             })
         }
-
     </script>
     <script type="text/javascript">
         function navCartShow() {
@@ -230,7 +227,6 @@
                 }
             });
         }
-
     </script>
     <script type="text/javascript">
         function cartRemoveProduct(id) {
@@ -255,7 +251,6 @@
                 }
             });
         }
-
     </script>
     <script>
         $('.wishlist').click(function (e) {
@@ -263,7 +258,6 @@
             var id = $(this).data('val');
             addToWishList(id);
         });
-
         function addToWishList(id) {
             $.ajax({
                 type: "POST",
@@ -282,7 +276,6 @@
                 }
             })
         }
-
     </script>
     <script>
         $('#searchButton').click(function (e) {
