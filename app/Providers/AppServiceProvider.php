@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if (app()->runningInConsole()) {
+        if (!app()->runningInConsole()) {
             // app is running in console
             $categories = Category::with('subcategories', 'subcategories.subSubcategories')->latest('id')->get();
             if ($categories) {
