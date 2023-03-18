@@ -8,6 +8,7 @@
         "php": "^7.3|^8.0",
         "barryvdh/laravel-dompdf": "^1.0",
         "bumbummen99/shoppingcart": "^4.2",
+        "fakerphp/faker": "^1.9.1",
         "fruitcake/laravel-cors": "^2.0",
         "garygreen/pretty-routes": "^1.0",
         "guzzlehttp/guzzle": "^7.0.1",
@@ -16,9 +17,9 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "livewire/livewire": "^2.5",
+        "pusher/pusher-php-server": "^7.2",
         "spatie/laravel-permission": "^5.5",
-        "stripe/stripe-php": "^8.6",
-        "fakerphp/faker": "^1.9.1"
+        "stripe/stripe-php": "^8.6"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

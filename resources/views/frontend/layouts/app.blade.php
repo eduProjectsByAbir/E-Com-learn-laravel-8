@@ -12,6 +12,7 @@
     <title>@yield('title', 'Abir-Ecommerce') - Abir's E-Commerce</title>
 
     @include('frontend.layouts.partials.styles')
+    <script src="https://js.pusher.com/7.2/pusher.min.js"></script>
     @yield('styles')
 </head>
 
@@ -283,7 +284,23 @@
             $('#searchForm').submit();
         });
     </script>
+    <script>
+        // Enable pusher logging - don't include this in production
+        // Pusher.logToConsole = true;
 
+        var pusher = new Pusher('0429b0cf98e138946019', {
+        cluster: 'ap1'
+        });
+
+        var channel = pusher.subscribe('product-purchase');
+        channel.bind('App\\Events\\ProductPurchaseEvent', function(data) {
+            if(data.show){                
+                toastr.success(data.text, 'Success!', {
+                    "positionClass": "toast-bottom-left",
+                });
+            }
+        });
+    </script>
     @yield('jsscript')
 </body>
 
