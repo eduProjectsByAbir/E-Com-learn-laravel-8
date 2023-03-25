@@ -1,5 +1,5 @@
 @props([
-    'specialoffers' => $specialoffers,
+    'specialoffers' => $specialoffers = [],
 ])
 
 @if(count($specialoffers) !== 0)
