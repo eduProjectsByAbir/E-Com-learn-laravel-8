@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\Events\ProductPurchaseEvent;
 use App\Http\Controllers\Controller;
 use App\Models\Coupon;
 use App\Models\Product;
@@ -12,10 +13,11 @@ use Illuminate\Support\Facades\Session;
 
 class CartController extends Controller
 {
-    public function addToCart(Request $request){
+    public function addToCart(Request $request)
+    {
         Session::forget('coupon');
         $product = Product::findOrFail($request->id);
-        $price = $product->price_discount == null ? $product->price :  $product->price-$product->price_discount;
+        $price = $product->price_discount == null ? $product->price :  $product->price - $product->price_discount;
         $cart = Cart::add([
             'id' => $request->id,
             'name' => $request->name,
@@ -30,7 +32,15 @@ class CartController extends Controller
             ],
         ]);
 
-        if($cart && $request->page !== null && request()->has('page') && request('page') == 'details'){
+        if ($cart) {
+            $username = auth()->check() ? auth()->user()->name : 'Someone';
+            $message = $product->name . ' added to cart by ' . $username;
+
+            event(new ProductPurchaseEvent($message, true));
+        }
+
+
+        if ($cart && $request->page !== null && request()->has('page') && request('page') == 'details') {
             flashSuccess('Product added to cart!');
             return back();
         }
@@ -38,13 +48,14 @@ class CartController extends Controller
         return $cart ? response()->json([
             'success' => 'Successfully added to cart',
             'cartCount' => Cart::count(),
-        ]): response()->json([
+        ]) : response()->json([
             'error' => 'Something went wrong!',
             'cartCount' => Cart::count(),
         ]);
     }
 
-    public function navCart(){
+    public function navCart()
+    {
         $data = [];
         $data['carts'] = Cart::content();
         $data['cartQty'] = Cart::count();
@@ -54,7 +65,8 @@ class CartController extends Controller
         return response()->json($data);
     }
 
-    public function cartRemoveProduct(Request $request){
+    public function cartRemoveProduct(Request $request)
+    {
         Session::forget('coupon');
         $cart = Cart::remove(request('id'));
         flashSuccess('Product Removed.');
@@ -64,7 +76,8 @@ class CartController extends Controller
         ]);
     }
 
-    public function myCart(){
+    public function myCart()
+    {
         $data = [];
         $data['carts'] = Cart::content();
         $data['cartQty'] = Cart::count();
@@ -77,18 +90,19 @@ class CartController extends Controller
         return view('frontend.pages.my-cart', $data);
     }
 
-    public function updateCart(Request $request){
+    public function updateCart(Request $request)
+    {
         Session::forget('coupon');
         $product = Cart::get($request->id);
-        if($request->do == 'plus'){
-            $cartUpdate = Cart::update($request->id, $product->qty+1);
+        if ($request->do == 'plus') {
+            $cartUpdate = Cart::update($request->id, $product->qty + 1);
         }
 
-        if($request->do == 'minus'){
-            $cartUpdate = Cart::update($request->id, $product->qty-1);
+        if ($request->do == 'minus') {
+            $cartUpdate = Cart::update($request->id, $product->qty - 1);
         }
 
-        if($cartUpdate){
+        if ($cartUpdate) {
             return  response()->json([
                 'success' => 'Product Updated!',
                 'cartData' => $product = Cart::get($request->id),
@@ -105,34 +119,35 @@ class CartController extends Controller
         ]);
     }
 
-    public function applyCoupon(Request $request){
-        $coupon = Coupon::where('coupon_code',strtoupper($request->code))->first();
+    public function applyCoupon(Request $request)
+    {
+        $coupon = Coupon::where('coupon_code', strtoupper($request->code))->first();
 
-        if($coupon){
-            If($coupon->expired){
+        if ($coupon) {
+            if ($coupon->expired) {
                 return  response()->json([
                     'error' => 'Coupon Expired!',
                 ]);
             }
-    
-            If(!$coupon->has_limit){
+
+            if (!$coupon->has_limit) {
                 return  response()->json([
                     'error' => 'Coupon Limit Over!',
                 ]);
             }
-    
-            If(!$coupon->validity){
+
+            if (!$coupon->validity) {
                 return  response()->json([
                     'error' => 'Invalid Coupon!',
                 ]);
             }
 
             Session::forget('coupon');
-            Session::put('coupon',[
+            Session::put('coupon', [
                 'coupon_code' => $coupon->coupon_code,
                 'coupon_discount' => $coupon->coupon_discount,
-                'discount_amount' => round(Cart::total() * $coupon->coupon_discount/100),
-                'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount/100)
+                'discount_amount' => round(Cart::total() * $coupon->coupon_discount / 100),
+                'total_amount' => round(Cart::total() - Cart::total() * $coupon->coupon_discount / 100)
             ]);
 
             return response()->json([
@@ -151,7 +166,8 @@ class CartController extends Controller
         ]);
     }
 
-    public function removeCoupon(){
+    public function removeCoupon()
+    {
         Session::forget('coupon');
         flashSuccess('Coupon Removed!');
         return back();
