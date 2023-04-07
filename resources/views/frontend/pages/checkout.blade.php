@@ -134,21 +134,28 @@ Checkout
                                         </div>
                                         <div class="row">
                                             <h3 style="padding-bottom: 10px;">Payment Methods</h3>
-                                            <div class="col-md-4 col-sm-12 form-check">
+                                            <div class="col-md-3 col-sm-12 form-check">
                                                 <input class="form-check-input" type="radio" name="payment_method"
                                                     id="payment_method_1" value="stripe">
                                                 <label class="form-check-label" for="payment_method_1">
                                                     Stripe
                                                 </label>
                                             </div>
-                                            <div class="col-md-4 col-sm-12 form-check">
+                                            <div class="col-md-3 col-sm-12 form-check">
+                                                <input class="form-check-input" type="radio" name="payment_method"
+                                                    id="payment_method_4" value="sslcommerz">
+                                                <label class="form-check-label" for="payment_method_4">
+                                                    SSLCommerz
+                                                </label>
+                                            </div>
+                                            <div class="col-md-3 col-sm-12 form-check">
                                                 <input class="form-check-input" type="radio" name="payment_method"
                                                     id="payment_method_2" value="card">
                                                 <label class="form-check-label" for="payment_method_2">
                                                     Card
                                                 </label>
                                             </div>
-                                            <div class="col-md-4 col-sm-12 form-check">
+                                            <div class="col-md-3 col-sm-12 form-check">
                                                 <input class="form-check-input" type="radio" name="payment_method"
                                                     id="payment_method_3" value="cod">
                                                 <label class="form-check-label" for="payment_method_3">
