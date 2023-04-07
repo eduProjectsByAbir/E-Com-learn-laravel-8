@@ -20,10 +20,10 @@ class ProductPurchaseEvent implements ShouldBroadcast
      *
      * @return void
      */
-    public function __construct($text)
+    public function __construct(string $text, bool $show = true)
     {
         $this->text = $text;
-        $this->show = true;
+        $this->show = $show;
     }
 
     /**
@@ -37,9 +37,4 @@ class ProductPurchaseEvent implements ShouldBroadcast
             new Channel('product-purchase')
         ];
     }
-
-    // public function broadcastAs()
-    // {
-    //     return 'product-purchase';
-    // }
 }

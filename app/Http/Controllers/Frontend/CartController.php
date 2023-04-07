@@ -32,14 +32,13 @@ class CartController extends Controller
             ],
         ]);
 
-        $username = 'Someone';
+        if ($cart) {
+            $username = auth()->check() ? auth()->user()->name : 'Someone';
+            $message = $product->name . ' added to cart by ' . $username;
 
-        if (auth()->check()) {
-            $username = auth()->user()->name;
+            event(new ProductPurchaseEvent($message, true));
         }
-        $message = $product->name . ' added to cart by ' . $username;
 
-        event(new ProductPurchaseEvent($message));
 
         if ($cart && $request->page !== null && request()->has('page') && request('page') == 'details') {
             flashSuccess('Product added to cart!');
