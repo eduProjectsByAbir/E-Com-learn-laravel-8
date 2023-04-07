@@ -25,7 +25,7 @@
     <!-- ============================================== NEWSLETTER: END ============================================== -->
 
     <!-- ============================================== Testimonials============================================== -->
-    {{-- <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
+    <div class="sidebar-widget  wow fadeInUp outer-top-vs ">
         <div id="advertisement" class="advertisement">
             <div class="item">
                 <div class="avatar"><img src="{{ asset('frontend') }}/images/testimonials/member1.png"
@@ -58,7 +58,7 @@
 
         </div>
         <!-- /.owl-carousel -->
-    </div> --}}
+    </div>
 
     <!-- ============================================== Testimonials: END ============================================== -->
 </div>
